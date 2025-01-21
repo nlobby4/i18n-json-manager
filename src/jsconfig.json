@@ -1,0 +1,17 @@
+// file represents tsconfig.json with allowJs: true
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "checkJs": false,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "baseUrl": "..",
+    // Path alias for imports from baseUrl (pointing to root)
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}

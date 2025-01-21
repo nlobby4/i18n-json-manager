@@ -1,0 +1,17 @@
+{
+  "name": "i18n-json-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "sphoon",
+  "license": "MIT",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "@sphoon/prettier-config": "1.1.3"
+  },
+  "prettier": "@sphoon/prettier-config"
+}

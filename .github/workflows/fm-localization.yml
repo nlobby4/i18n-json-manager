@@ -1,0 +1,33 @@
+name: fm-localization
+
+on:
+  push:
+    branches:
+      - main # when you push to your main branch
+  workflow_dispatch: # manual trigger from GitHub Actions UI
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Parent Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Fetches submodule content
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for Submodule Updates
+        run: |
+          # fetch the latest submodule commit
+          git submodule update --remote --merge --recursive
+
+          # check if submodule has changed
+          git diff --exit-code || echo "Submodule has changes"
+
+      - name: Update Submodule and Push Changes
+        if: success() # Only runs if submodule has changes
+        run: |
+          git submodule update --remote --merge
+          git add .
+          git commit -m "Auto-update submodule to latest commit" || exit 0
+          git push origin main
