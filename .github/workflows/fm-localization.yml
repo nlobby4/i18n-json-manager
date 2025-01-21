@@ -29,5 +29,5 @@ jobs:
         run: |
           git submodule update --remote --merge
           git add .
-          git commit -m "Auto-update submodule to latest commit" || exit 0
+          git commit -m "localization auto update" || exit 0
           git push origin main
