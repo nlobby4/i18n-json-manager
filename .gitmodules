@@ -1,0 +1,4 @@
+[submodule "src/web/assets/locale"]
+	path = src/web/assets/locale
+	url = https://github.com/nlobby4/fm-localization.git
+	branch = locale
