@@ -6,6 +6,9 @@ on:
       - main # when you push to your main branch
   workflow_dispatch: # manual trigger from GitHub Actions UI
 
+permissions:
+  contents: write  # Allow write access to repository contents (for pushing commits)
+
 jobs:
   update-submodule:
     runs-on: ubuntu-latest
