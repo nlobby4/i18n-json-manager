@@ -19,6 +19,18 @@ jobs:
           submodules: true # Fetches submodule content
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Initialize Submodule
+        run: |
+          git submodule update --init --recursive
+
+      - name: Checkout Submodule Branch (locale)
+        run: |
+          # Navigate to the submodule and fetch the latest data
+          cd src/web/assets/locale
+          git fetch
+          git checkout locale  # Ensure you're on the 'locale' branch
+          cd ../../..
+
       - name: Check for Submodule Updates
         run: |
           # fetch the latest submodule commit
